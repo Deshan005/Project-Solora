@@ -1,26 +1,229 @@
-@import "tailwindcss";
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light theme (unchanged; already grey) */
+  --bg-surface1: #F1F1F1;
+  --bg-surface2: #ffffff;
+  --bg-surface3: #f1f1f1;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-tertiary: #888888;
+  --border-color: #e0e0e0;
+  --primary: #2a85ff;
+  --sidebar-active-bg: #ffffff; /* grey for light mode */
+  --sidebar-active-text: #1a1a1a;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="dark"] {
+  /* Make selected background grey instead of white */
+  --bg-surface1: #101010;
+  --bg-surface2: #1e1d1d;
+  --bg-surface3: #181717;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #888888;
+  --border-color: #444444;
+  --primary: #2a85ff;
+
+  /* changed: */
+  --sidebar-active-bg: #2b2b2b;  /* grey */
+  --sidebar-active-text: #ffffff; /* readable on grey */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
+/* Apply the CSS variables to elements */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-surface1);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Utility classes for easy styling */
+.bg-surface1 {
+  background-color: var(--bg-surface1);
+}
+
+.bg-surface2 {
+  background-color: var(--bg-surface2);
+}
+
+.bg-surface3 {
+  background-color: var(--bg-surface3);
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.border-color {
+  border-color: var(--border-color);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.text-primary-color {
+  color: var(--primary);
+}
+
+/* Sidebar specific classes */
+.bg-sidebar-active {
+  background-color: var(--sidebar-active-bg);
+}
+
+.text-sidebar-active {
+  color: var(--sidebar-active-text);
+}
+
+.shadow-theme {
+  box-shadow: var(--shadow);
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.shadow-theme {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .shadow-theme {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+/* Buttons */
+.btn {
+  @apply px-3 py-1.5 rounded-lg border text-sm transition-colors;
+  background-color: var(--bg-surface2);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn:hover {
+  background-color: var(--bg-surface3);
+}
+
+.btn-primary {
+  @apply px-3 py-1.5 rounded-lg text-sm transition-colors;
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.btn-danger {
+  @apply px-3 py-1.5 rounded-lg text-sm transition-colors;
+  background-color: #e53e3e; /* red-600 */
+  color: #ffffff;
+}
+
+.btn-danger:hover {
+  filter: brightness(1.1);
+}
+
+/* Input fields */
+.input {
+  @apply px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2;
+  background-color: var(--bg-surface2);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.input:focus {
+  border-color: var(--primary);
+  ring-color: var(--primary);
+}
+
+/* Card */
+.card {
+  background-color: var(--bg-surface2);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+/* Badges */
+.badge {
+  @apply px-2 py-1 rounded-lg border text-xs font-medium;
+  display: inline-block;
+}
+
+/* Dark theme overrides */
+[data-theme='dark'] .btn {
+  background-color: var(--bg-surface3);
+  color: #ffffff;
+  border-color: #444444;
+}
+
+[data-theme='dark'] .btn:hover {
+  background-color: var(--bg-surface2);
+}
+
+[data-theme='dark'] .btn-primary {
+  background-color: #2a85ff;
+}
+
+[data-theme='dark'] .btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+[data-theme='dark'] .btn-danger {
+  background-color: #e53e3e;
+}
+
+[data-theme='dark'] .btn-danger:hover {
+  filter: brightness(1.1);
+}
+
+[data-theme='dark'] .input {
+  background-color: var(--bg-surface3);
+  color: #ffffff;
+  border-color: #444444;
+}
+
+[data-theme='dark'] .badge {
+  color: #ffffff;
 }
