@@ -227,3 +227,31 @@ body {
 [data-theme='dark'] .badge {
   color: #ffffff;
 }
+
+
+
+
+
+
+
+
+
+
+.chat-scrollbar::-webkit-scrollbar {
+  width: 8px; /* thin scrollbar */
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #1d1d1e;
+  border-radius: 9999px; /* rounded bar */
+}
+
+.chat-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #313133 transparent;
+}
+

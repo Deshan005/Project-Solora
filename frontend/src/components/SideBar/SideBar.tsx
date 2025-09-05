@@ -19,7 +19,7 @@ const navigation: NavItem[] = [
     title: "Clients",
     icon: "people",
     items: [
-      { title: "All Clients", href: "/dashboard/clients" }, // updated
+      { title: "All Clients", href: "/dashboard/clients" },
     ],
   },
   {
@@ -27,6 +27,8 @@ const navigation: NavItem[] = [
     icon: "work",
     items: [
       { title: "All Jobs", href: "/dashboard/jobs" },
+      { title: "Job Notes", href: "/dashboard/jobs/jobNotes" },
+
     ],
   },
   {

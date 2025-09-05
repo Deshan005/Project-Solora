@@ -3,6 +3,8 @@
 
 import { useState } from "react";
 import ThemeButton from "../SideBar/ThemeButton";
+import Messages from "./Messages";
+import Notifications from "./Notifications";
 
 const Header = () => {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -24,16 +26,10 @@ const Header = () => {
           >
             🔍
           </button>
-          
-          <button className="w-10 h-10 rounded-full flex items-center justify-center 
-            bg-surface3 hover:bg-surface2 shadow-sm">
-            🔔
-          </button>
-          
-          <button className="w-10 h-10 rounded-full flex items-center justify-center 
-            bg-surface3 hover:bg-surface2 shadow-sm">
-            💬
-          </button>
+
+          <Notifications/>
+
+          <Messages/>
           
           <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-medium shadow-sm">
             JD
