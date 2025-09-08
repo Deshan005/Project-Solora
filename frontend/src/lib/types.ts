@@ -4,6 +4,7 @@ export interface Client {
   email?: string;
   phone?: string;
   notes?: string;
+  joinedDate?: string;
   serviceHistory: string[];
 }
 
@@ -23,6 +24,7 @@ export interface Job {
   start: string; // HH:mm
   end: string;   // HH:mm
   notes?: string;
+  status: string;
 }
 
 export interface Invoice {

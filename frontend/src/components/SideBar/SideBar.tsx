@@ -28,7 +28,7 @@ const navigation: NavItem[] = [
     items: [
       { title: "All Jobs", href: "/dashboard/jobs" },
       { title: "Job Notes", href: "/dashboard/jobs/jobNotes" },
-
+      { title: "Job Reports", href: "/dashboard/jobs/jobCompletion"}
     ],
   },
   {
@@ -46,6 +46,12 @@ const navigation: NavItem[] = [
     ],
   },
   { title: "Settings", icon: "settings", href: "/dashboard/settings" },
+  {
+    title: "Revenue Reports", icon: "", href: "/dashboard/revenuereports"
+  },
+    {
+    title: "Ratings", icon: "star", href: "/dashboard/ratings"
+  }
 ];
 
 
