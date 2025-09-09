@@ -5,6 +5,7 @@ import { useState } from "react";
 import ThemeButton from "../SideBar/ThemeButton";
 import Messages from "./Messages";
 import Notifications from "./Notifications";
+import Profile from "./Profile";
 
 const Header = () => {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -31,9 +32,7 @@ const Header = () => {
 
           <Messages/>
           
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-medium shadow-sm">
-            JD
-          </div>
+          <Profile/>
           
           <ThemeButton className="hidden md:flex" />
         </div>

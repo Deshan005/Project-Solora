@@ -49,8 +49,17 @@ const navigation: NavItem[] = [
   {
     title: "Revenue Reports", icon: "", href: "/dashboard/revenuereports"
   },
-    {
+  {
     title: "Ratings", icon: "star", href: "/dashboard/ratings"
+  },
+  {
+    title: "login", icon: "star", href: "/login"
+  },  
+  {
+    title: "register", icon: "star", href: "/register"
+  },
+  {
+    title: "reset", icon: "star", href: "/reset"
   }
 ];
 
@@ -168,13 +177,6 @@ const Sidebar = () => {
       <div className="p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-medium">
-              JD
-            </div>
-            <div className="ml-3">
-              <p className="text-sm font-medium">John Doe</p>
-              <p className="text-xs text-secondary">Administrator</p>
-            </div>
           </div>
           <ThemeButton />
         </div>
