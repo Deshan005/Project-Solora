@@ -1,3 +1,4 @@
+// src/components/ProductView.jsx
 import { BarChart, Bar, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { NumericFormat } from "react-number-format";
 
@@ -68,14 +69,14 @@ const ProductView = ({}) => {
     const percentageChange = 36.8;
 
     return (
-        <div className="bg-surface2 rounded-2xl border border-color shadow-theme p-6">
+        <div className="bg-surface2 rounded-2xl border border-color shadow-theme p-4 lg:p-6 mt-6 lg:mt-0">
             {/* Header */}
-            <div className="flex justify-between items-start mb-6">
+            <div className="flex flex-col lg:flex-row justify-between items-start mb-6 gap-4 lg:gap-0">
                 <div>
                     <h2 className="text-lg font-semibold text-primary mb-2">Product view</h2>
                     <div className="text-2xl font-bold text-primary">{formattedTotal}</div>
                 </div>
-                <select className="bg-surface3 border border-color rounded-full px-3 py-2 text-sm text-secondary">
+                <select className="bg-surface3 border border-color rounded-full px-3 py-2 text-sm text-secondary w-full lg:w-auto">
                     <option>Last 7 days</option>
                     <option>Last month</option>
                     <option>Last year</option>

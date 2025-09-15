@@ -26,7 +26,7 @@ const RightPanel = () => {
   ];
 
   return (
-    <aside className=" w-84 bg-surface2 h-full p-4 rounded-2xl border-l border-color hidden lg:block overflow-auto">
+    <aside className="w-full bg-surface2 h-full p-4 rounded-2xl border border-color lg:border-l overflow-auto mt-6 lg:mt-0">
       <h3 className="font-bold mb-4">Widgets</h3>
       
       {/* Stats Widget */}

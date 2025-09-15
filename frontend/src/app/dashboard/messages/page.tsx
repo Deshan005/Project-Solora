@@ -99,7 +99,7 @@ export default function MessagesPage() {
     });
     setContacts(updatedContacts);
     setSelectedContact(contact);
-    setReply(""); // Clear typing box when switching chats
+    setReply("");
   };
 
   const handleSend = () => {
@@ -126,46 +126,43 @@ export default function MessagesPage() {
     <div className="flex justify-center bg-surface1 overflow-hidden pt-4">
       <div className="flex w-full max-w-[1100px] h-[80vh] shadow-theme rounded-2xl overflow-hidden border border-color">
         {/* Left Panel */}
-{/* Left Panel */}
-<div className="w-1/3 max-w-[320px] border-r border-color bg-surface2 flex flex-col">
-  <h2 className="p-4 text-lg font-semibold border-b border-color">Chats</h2>
-  <div className="flex-1 overflow-y-auto scrollbar-none">
-    {contacts.map((c) => {
-      const unread = getUnreadCount(c);
-      return (
-        <div
-          key={c.id}
-          onClick={() => handleSelectContact(c)}
-          className={`flex items-center justify-between p-3 cursor-pointer hover:bg-surface3 ${
-            selectedContact?.id === c.id ? "bg-surface3" : ""
-          } border-b border-color`}
-        >
-          <div className="flex items-center space-x-3">
-            <img
-              src={c.avatar}
-              alt={c.name}
-              className="w-10 h-10 rounded-full object-cover"
-            />
-            <div className="truncate">
-              <p className="text-sm font-semibold text-primary truncate">{c.name}</p>
-              <p className="text-xs text-tertiary truncate">{c.lastMessage}</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-end">
-            <span className="text-[10px] text-tertiary">{c.lastTime}</span>
-            {unread > 0 && (
-              <span className="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full mt-1">
-                {unread}
-              </span>
-            )}
+        <div className="w-1/3 max-w-[320px] border-r border-color bg-surface2 flex flex-col">
+          <h2 className="p-4 text-lg font-semibold border-b border-color">Chats</h2>
+          <div className="flex-1 overflow-y-auto scrollbar-none">
+            {contacts.map((c) => {
+              const unread = getUnreadCount(c);
+              return (
+                <div
+                  key={c.id}
+                  onClick={() => handleSelectContact(c)}
+                  className={`flex items-center justify-between p-3 cursor-pointer hover:bg-surface3 ${
+                    selectedContact?.id === c.id ? "bg-surface3" : ""
+                  } border-b border-color`}
+                >
+                  <div className="flex items-center space-x-3">
+                    <img
+                      src={c.avatar}
+                      alt={c.name}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                    <div className="truncate">
+                      <p className="text-sm font-semibold text-primary truncate">{c.name}</p>
+                      <p className="text-xs text-tertiary truncate">{c.lastMessage}</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <span className="text-[10px] text-tertiary">{c.lastTime}</span>
+                    {unread > 0 && (
+                      <span className="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full mt-1">
+                        {unread}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
-      );
-    })}
-  </div>
-</div>
-
-
         {/* Right Panel */}
         <div className="flex-1 flex flex-col bg-surface1">
           {selectedContact ? (

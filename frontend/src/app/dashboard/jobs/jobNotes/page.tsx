@@ -84,41 +84,47 @@ export default function JobNotesPage() {
   const jobTitle = (id: string) => jobs.find((j) => j.id === id)?.title ?? "Unknown Job";
 
   return (
-    <div className="space-y-4">
-      <h1 className="text-2xl font-semibold">Job Notes</h1>
+    <div className="space-y-4 p-4 lg:p-6">
+      <h1 className="text-xl lg:text-2xl font-semibold">Job Notes</h1>
 
       {/* Add Job Note */}
       <Card title="Add Note">
-        <div className="grid sm:grid-cols-2 gap-3">
-          <select
-            className="input"
-            value={form.jobId ?? ""}
-            onChange={(e) => setForm({ ...form, jobId: e.target.value })}
-          >
-            <option value="">Select Job</option>
-            {isMounted &&
-              jobs.map((j) => (
-                <option key={j.id} value={j.id}>
-                  {j.title} ({j.date})
-                </option>
-              ))}
-          </select>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="sm:col-span-2">
+            <select
+              className="input w-full"
+              value={form.jobId ?? ""}
+              onChange={(e) => setForm({ ...form, jobId: e.target.value })}
+            >
+              <option value="">Select Job</option>
+              {isMounted &&
+                jobs.map((j) => (
+                  <option key={j.id} value={j.id}>
+                    {j.title} ({j.date})
+                  </option>
+                ))}
+            </select>
+          </div>
 
-          <textarea
-            className="input sm:col-span-2"
-            rows={3}
-            placeholder="Enter completion notes..."
-            value={form.notes ?? ""}
-            onChange={(e) => setForm({ ...form, notes: e.target.value })}
-          />
+          <div className="sm:col-span-2">
+            <textarea
+              className="input w-full"
+              rows={3}
+              placeholder="Enter completion notes..."
+              value={form.notes ?? ""}
+              onChange={(e) => setForm({ ...form, notes: e.target.value })}
+            />
+          </div>
 
-          <input
-            type="file"
-            accept="image/*"
-            className="sm:col-span-2"
-            multiple
-            onChange={handlePhotos}
-          />
+          <div className="sm:col-span-2">
+            <input
+              type="file"
+              accept="image/*"
+              className="w-full"
+              multiple
+              onChange={handlePhotos}
+            />
+          </div>
 
           {previews.length > 0 && (
             <div className="sm:col-span-2 flex flex-wrap gap-2">
@@ -127,17 +133,17 @@ export default function JobNotesPage() {
                   key={idx}
                   src={src}
                   alt="Preview"
-                  className="w-28 h-28 object-cover rounded-lg border"
+                  className="w-20 h-20 lg:w-28 lg:h-28 object-cover rounded-lg border"
                 />
               ))}
             </div>
           )}
 
-          <div className="sm:col-span-2 flex gap-2">
-            <button className="btn-primary" onClick={add}>
+          <div className="sm:col-span-2 flex flex-col sm:flex-row gap-2">
+            <button className="btn-primary w-full sm:w-auto" onClick={add}>
               Add Note
             </button>
-            <button className="btn" onClick={cancel}>
+            <button className="btn w-full sm:w-auto" onClick={cancel}>
               Cancel
             </button>
           </div>
@@ -154,9 +160,9 @@ export default function JobNotesPage() {
           {notes.map((n) => (
             <div
               key={n.id}
-              className="p-3 border border-color rounded-lg flex justify-between items-start"
+              className="p-3 border border-color rounded-lg flex flex-col sm:flex-row justify-between items-start gap-3"
             >
-              <div>
+              <div className="flex-1">
                 <p className="text-sm font-medium">{jobTitle(n.jobId)}</p>
                 <p className="text-xs text-secondary">
                   {new Date(n.createdAt).toLocaleString()}
@@ -169,13 +175,13 @@ export default function JobNotesPage() {
                         key={idx}
                         src={p}
                         alt="Job note"
-                        className="w-28 h-28 object-cover rounded border"
+                        className="w-20 h-20 lg:w-28 lg:h-28 object-cover rounded border"
                       />
                     ))}
                   </div>
                 )}
               </div>
-              <button className="btn-danger text-xs" onClick={() => remove(n.id)}>
+              <button className="btn-danger text-xs self-end sm:self-auto" onClick={() => remove(n.id)}>
                 Delete
               </button>
             </div>

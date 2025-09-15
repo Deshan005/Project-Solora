@@ -1,16 +1,41 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc"; // Google icon
+import ThemeButton from "@/components/SideBar/ThemeButton";
 
 const LoginPage = () => {
   const [form, setForm] = useState({ email: "", password: "", remember: false });
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  // ✅ Hardcoded credentials
+  const validCredentials = {
+    email: "admin@test.com",
+    password: "1234",
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login:", form);
-    // TODO: integrate API
+
+    if (form.email === validCredentials.email && form.password === validCredentials.password) {
+      // Save session (frontend only)
+      localStorage.setItem("isAuthenticated", "true");
+
+      // Optional: save remember me state
+      if (form.remember) {
+        localStorage.setItem("rememberEmail", form.email);
+      } else {
+        localStorage.removeItem("rememberEmail");
+      }
+
+      // Redirect to dashboard
+      router.push("/dashboard");
+    } else {
+      setError("Invalid email or password");
+    }
   };
 
   const handleGoogleLogin = () => {
@@ -19,7 +44,15 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-surface1">
+    <div className="min-h-screen flex items-center justify-center bg-surface1 relative px-4">
+      {/* ✅ Theme Button top-right */}
+      <div className="absolute top-4 right-4 z-50">
+        <div className="p-2 rounded-full bg-surface2 shadow-md hover:scale-105 transition">
+          <ThemeButton />
+        </div>
+      </div>
+
+      {/* ✅ Login Card */}
       <div className="card w-full max-w-md space-y-6">
         <h1 className="text-2xl font-bold text-center text-primary">Welcome Back</h1>
         <p className="text-center text-secondary text-sm">Login to your account</p>
@@ -58,6 +91,8 @@ const LoginPage = () => {
             </Link>
           </div>
 
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+
           <button type="submit" className="btn-primary w-full">Login</button>
         </form>
 
@@ -82,6 +117,8 @@ const LoginPage = () => {
           <Link href="/register" className="text-primary-color hover:underline">
             Register
           </Link>
+        <p>email : admin@test.com</p>
+        <p>password : 1234</p>
         </p>
       </div>
     </div>

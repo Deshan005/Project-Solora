@@ -51,18 +51,8 @@ const navigation: NavItem[] = [
   },
   {
     title: "Ratings", icon: "star", href: "/dashboard/ratings"
-  },
-  {
-    title: "login", icon: "star", href: "/login"
-  },  
-  {
-    title: "register", icon: "star", href: "/register"
-  },
-  {
-    title: "reset", icon: "star", href: "/reset"
   }
 ];
-
 
 const Icon = ({ name, className }: { name: string; className?: string }) => {
   const iconMap: Record<string, string> = {
@@ -79,17 +69,17 @@ type DropdownProps = {
   item: NavItem;
   isOpen: boolean;
   onToggle: () => void;
+  isActive: boolean;
 };
 
-const Dropdown = ({ item, isOpen, onToggle }: DropdownProps) => {
+const Dropdown = ({ item, isOpen, onToggle, isActive }: DropdownProps) => {
   const pathname = usePathname();
-  const isActive = item.items?.some((sub) => pathname === sub.href);
 
   return (
     <div className="mb-1">
       <button
         className={`flex items-center w-full p-3 text-left rounded-lg transition-colors ${
-          isActive || isOpen
+          isActive
             ? "bg-sidebar-active text-sidebar-active"
             : "text-secondary hover:bg-surface3 hover:text-primary"
         }`}
@@ -104,13 +94,13 @@ const Dropdown = ({ item, isOpen, onToggle }: DropdownProps) => {
       {isOpen && (
         <div className="ml-6 mt-1 pl-3">
           {item.items?.map((sub) => {
-            const active = pathname === sub.href;
+            const subActive = pathname === sub.href;
             return (
               <Link
                 key={sub.href}
                 href={sub.href}
                 className={`block p-2 rounded-lg transition-colors ${
-                  active
+                  subActive
                     ? "bg-sidebar-active text-sidebar-active font-medium"
                     : "text-secondary hover:text-primary hover:bg-surface3"
                 }`}
@@ -125,7 +115,12 @@ const Dropdown = ({ item, isOpen, onToggle }: DropdownProps) => {
   );
 };
 
-const Sidebar = () => {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const pathname = usePathname();
 
   // Which dropdown should be open (accordion behavior)
@@ -138,50 +133,73 @@ const Sidebar = () => {
   // Keep the correct group open when route changes
   useEffect(() => {
     setOpenKey(initialOpenTitle);
-  }, [initialOpenTitle]);
+  }, [initialOpenTitle, pathname]);
 
   return (
-    <aside className="w-64 bg-surface1 text-primary h-full flex flex-col">
-      <div className="p-5">
-        <h1 className="text-xl font-bold">LOGO</h1>
-      </div>
-
-      <nav className="flex-1 p-4 overflow-y-auto">
-        <div className="space-y-1">
-          {navigation.map((item) =>
-            item.href ? (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex items-center p-3 rounded-lg transition-colors ${
-                  pathname === item.href
-                    ? "bg-sidebar-active text-sidebar-active"
-                    : "text-secondary hover:bg-surface3 hover:text-primary"
-                }`}
-              >
-                <Icon name={item.icon} className="mr-3" />
-                {item.title}
-              </Link>
-            ) : (
-              <Dropdown
-                key={item.title}
-                item={item}
-                isOpen={openKey === item.title}
-                onToggle={() => setOpenKey((prev) => (prev === item.title ? null : item.title))}
-              />
-            )
-          )}
+    <>
+      {/* Mobile overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={onClose}
+        />
+      )}
+      
+      <aside className={`fixed lg:static top-0 left-0 z-50 w-64 bg-surface1 text-primary h-full flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="p-5 flex justify-between items-center">
+          <h1 className="text-xl font-bold">LOGO</h1>
+          <button 
+            className="lg:hidden text-secondary hover:text-primary"
+            onClick={onClose}
+          >
+            ✕
+          </button>
         </div>
-      </nav>
 
-      <div className="p-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
+        <nav className="flex-1 p-4 overflow-y-auto chat-scrollbar">
+          <div className="space-y-1">
+            {navigation.map((item) => {
+              // Check if this item or any of its sub-items is active
+              const isActive = item.href 
+                ? pathname === item.href
+                : item.items?.some(sub => pathname === sub.href);
+              
+              return item.href ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`flex items-center p-3 rounded-lg transition-colors ${
+                    isActive
+                      ? "bg-sidebar-active text-sidebar-active"
+                      : "text-secondary hover:bg-surface3 hover:text-primary"
+                  }`}
+                  onClick={onClose}
+                >
+                  <Icon name={item.icon} className="mr-3" />
+                  {item.title}
+                </Link>
+              ) : (
+                <Dropdown
+                  key={item.title}
+                  item={item}
+                  isOpen={openKey === item.title}
+                  onToggle={() => setOpenKey((prev) => (prev === item.title ? null : item.title))}
+                  isActive={isActive || false}
+                />
+              );
+            })}
           </div>
-          <ThemeButton />
+        </nav>
+
+        <div className="p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+            </div>
+            <ThemeButton />
+          </div>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 };
 

@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 "use client";
 
 import { useState } from "react";
@@ -7,15 +6,26 @@ import Messages from "./Messages";
 import Notifications from "./Notifications";
 import Profile from "./Profile";
 
-const Header = () => {
+// Define the prop interface
+interface NavbarProps {
+  toggleSidebar: () => void;
+}
+
+const Navbar = ({ toggleSidebar }: NavbarProps) => {
   const [searchVisible, setSearchVisible] = useState(false);
   
   return (
-    <header className="sticky top-0 z-20 bg-surface1  h-20 flex items-center px-10">
+    <header className="sticky top-0 z-10 bg-surface1 h-20 flex items-center px-4 lg:px-10">
       <div className="flex items-center justify-between w-full">
         {/* Left section */}
         <div className="flex items-center">
-          <h1 className="text-3xl font-semibold">Dashboard</h1>
+          <button 
+            className="lg:hidden mr-4 w-10 h-10 rounded-full flex items-center justify-center bg-surface3 hover:bg-surface2 shadow-sm"
+            onClick={toggleSidebar}
+          >
+            ☰
+          </button>
+          <h1 className="text-2xl lg:text-3xl font-semibold">Dashboard</h1>
         </div>
 
         {/* Right section */}
@@ -41,4 +51,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;

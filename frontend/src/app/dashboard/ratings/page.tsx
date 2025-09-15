@@ -62,33 +62,7 @@ export default function ClientRatingsPage() {
     <div className="space-y-8">
       <h1 className="text-2xl font-semibold">Client Ratings</h1>
 
-      {/* Individual Ratings */}
-      <div className="space-y-4">
-        {clients.map((client) => (
-          <Card key={client.id}>
-            <div className="flex items-center justify-between">
-              <span className="font-medium">{client.name}</span>
-              <div className="flex gap-1">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <button
-                    key={star}
-                    onClick={() => setClientRating(client.id, star)}
-                    className={`text-xl ${
-                      (client as ClientWithRating).rating ?? 0 >= star
-                        ? 'text-yellow-400'
-                        : 'text-gray-400'
-                    }`}
-                  >
-                    ★
-                  </button>
-                ))}
-              </div>
-            </div>
-          </Card>
-        ))}
-      </div>
-
-      {/* Summary */}
+            {/* Summary */}
       <Card title="Ratings Summary">
         <p className="mb-4">Average Rating: <span className="font-semibold">{average}</span></p>
         <div className="grid md:grid-cols-2 gap-6">
@@ -125,6 +99,34 @@ export default function ClientRatingsPage() {
           </ResponsiveContainer>
         </div>
       </Card>
+
+      {/* Individual Ratings */}
+      <div className="space-y-4">
+        {clients.map((client) => (
+          <Card title='' key={client.id}>
+            <div className="flex items-center justify-between">
+              <span className="font-medium">{client.name}</span>
+              <div className="flex gap-1">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    onClick={() => setClientRating(client.id, star)}
+                    className={`text-xl ${
+                      (client as ClientWithRating).rating ?? 0 >= star
+                        ? 'text-yellow-400'
+                        : 'text-gray-400'
+                    }`}
+                  >
+                    ★
+                  </button>
+                ))}
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+
+
     </div>
   );
 }

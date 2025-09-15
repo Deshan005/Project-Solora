@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 
 const ProfilePanel = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,10 +54,10 @@ const ProfilePanel = () => {
           {/* Navigation */}
           <nav className="space-y-2">
             {[
-              { key: "profile", label: "Profile" },
-              { key: "security", label: "Security" },
-              { key: "notifications", label: "Notifications" },
-              { key: "payment", label: "Payment" },
+              { key: "profile", label: "Profile", href:"/dashboard/settings/settings#profile" },
+              { key: "security", label: "Security", href:"/dashboard/settings/settings#security" },
+              { key: "notifications", label: "Notifications", href:"/dashboard/settings/settings#notifications" },
+              { key: "payment", label: "Payment", href:"/dashboard/settings/settings#payments" },
             ].map((item) => (
               <button
                 key={item.key}
@@ -74,7 +75,7 @@ const ProfilePanel = () => {
 
           {/* Footer */}
           <div>
-            <button className="w-full px-4 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600 transition">
+            <button className="w-full px-4 py-2 rounded-xl bg-btn outline text-white hover:bg-red-600 transition">
               Logout
             </button>
           </div>

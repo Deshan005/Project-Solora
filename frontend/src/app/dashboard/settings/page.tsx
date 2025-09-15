@@ -76,7 +76,7 @@ export default function SettingsPage() {
         <h1 className="text-2xl font-bold mb-6">Profile Settings</h1>
 
         {activeTab === "profile" && (
-          <div className="card space-y-6 p-6">
+          <div className="card space-y-6 p-6" id="profile">
             <h2 className="text-lg font-semibold">Profile Information</h2>
             <form onSubmit={handleProfileSave} className="space-y-4">
               <div>
@@ -122,7 +122,7 @@ export default function SettingsPage() {
         )}
 
         {activeTab === "security" && (
-          <div className="card space-y-6 p-6">
+          <div className="card space-y-6 p-6" id="security">
             <h2 className="text-lg font-semibold">Change Password</h2>
             <form onSubmit={handlePasswordChange} className="space-y-4">
               <div>
@@ -160,7 +160,7 @@ export default function SettingsPage() {
         )}
 
         {activeTab === "notifications" && (
-          <div className="card p-6">
+          <div className="card p-6" id="notifications">
             <h2 className="text-lg font-semibold">Notifications</h2>
             <p className="text-sm text-secondary">Notification settings coming soon...</p>
           </div>
@@ -168,7 +168,7 @@ export default function SettingsPage() {
 
         {activeTab === "payment" && (
           <div className="card p-6">
-            <h2 className="text-lg font-semibold">Payment</h2>
+            <h2 className="text-lg font-semibold" id="payments">Payment</h2>
             <p className="text-sm text-secondary">Payment settings coming soon...</p>
           </div>
         )}
