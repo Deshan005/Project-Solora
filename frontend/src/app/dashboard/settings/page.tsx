@@ -34,22 +34,37 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="flex gap-6 p-8 bg-surface1 text-primary">
-      {/* Left Panel as Card */}
-      <aside className="card w-72 h-fit space-y-4 p-6">
-        <div className="flex items-center space-x-3">
+    <div className="flex flex-col lg:flex-row gap-6 p-4 md:p-6 lg:p-8 bg-surface1 text-primary">
+      {/* Left Panel as Card - Mobile becomes horizontal scroll or top nav */}
+      <aside className="card w-full lg:w-72 h-fit space-y-4 p-4 md:p-6">
+        <div className="flex items-center space-x-3 mb-4 lg:mb-0">
           <img
             src="https://i.pravatar.cc/100"
             alt="avatar"
-            className="w-12 h-12 rounded-full"
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full"
           />
-          <div>
-            <p className="font-semibold">{name}</p>
-            <p className="text-xs text-secondary">{email}</p>
+          <div className="flex-1 min-w-0">
+            <p className="font-semibold truncate">{name}</p>
+            <p className="text-xs text-secondary truncate">{email}</p>
           </div>
         </div>
 
-        <nav className="space-y-2">
+        {/* Mobile tab selector */}
+        <div className="lg:hidden">
+          <select
+            value={activeTab}
+            onChange={(e) => setActiveTab(e.target.value)}
+            className="input w-full"
+          >
+            <option value="profile">Profile</option>
+            <option value="security">Security</option>
+            <option value="notifications">Notifications</option>
+            <option value="payment">Payment</option>
+          </select>
+        </div>
+
+        {/* Desktop navigation */}
+        <nav className="hidden lg:block space-y-2">
           {[
             { key: "profile", label: "Profile" },
             { key: "security", label: "Security" },
@@ -73,10 +88,10 @@ export default function SettingsPage() {
 
       {/* Right Content Area */}
       <main className="flex-1">
-        <h1 className="text-2xl font-bold mb-6">Profile Settings</h1>
+        <h1 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Profile Settings</h1>
 
         {activeTab === "profile" && (
-          <div className="card space-y-6 p-6" id="profile">
+          <div className="card space-y-4 md:space-y-6 p-4 md:p-6" id="profile">
             <h2 className="text-lg font-semibold">Profile Information</h2>
             <form onSubmit={handleProfileSave} className="space-y-4">
               <div>
@@ -114,7 +129,7 @@ export default function SettingsPage() {
                   className="input w-full h-24 resize-none"
                 />
               </div>
-              <button type="submit" className="btn-primary">
+              <button type="submit" className="btn-primary w-full md:w-auto">
                 Save Changes
               </button>
             </form>
@@ -122,7 +137,7 @@ export default function SettingsPage() {
         )}
 
         {activeTab === "security" && (
-          <div className="card space-y-6 p-6" id="security">
+          <div className="card space-y-4 md:space-y-6 p-4 md:p-6" id="security">
             <h2 className="text-lg font-semibold">Change Password</h2>
             <form onSubmit={handlePasswordChange} className="space-y-4">
               <div>
@@ -152,7 +167,7 @@ export default function SettingsPage() {
                   className="input w-full"
                 />
               </div>
-              <button type="submit" className="btn-danger">
+              <button type="submit" className="btn-danger w-full md:w-auto">
                 Update Password
               </button>
             </form>
@@ -160,14 +175,14 @@ export default function SettingsPage() {
         )}
 
         {activeTab === "notifications" && (
-          <div className="card p-6" id="notifications">
+          <div className="card p-4 md:p-6" id="notifications">
             <h2 className="text-lg font-semibold">Notifications</h2>
             <p className="text-sm text-secondary">Notification settings coming soon...</p>
           </div>
         )}
 
         {activeTab === "payment" && (
-          <div className="card p-6">
+          <div className="card p-4 md:p-6">
             <h2 className="text-lg font-semibold" id="payments">Payment</h2>
             <p className="text-sm text-secondary">Payment settings coming soon...</p>
           </div>

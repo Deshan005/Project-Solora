@@ -34,7 +34,7 @@ export default function RootLayout({
   }
 
   if (!isAuthenticated) {
-    return <div>Loading...</div>
+    return <div className='loader'>Loading...</div>
   }
 
   return (
