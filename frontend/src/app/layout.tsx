@@ -1,11 +1,5 @@
 // src/app/layout.tsx
 import "./globals.css";
-
-export const metadata = {
-  title: "Dashboard",
-  description: "Modern dashboard application",
-};
-
 export default function RootLayout({
   children,
 }: {
