@@ -20,7 +20,7 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-20 bg-white">
+    <section id="features" className="py-2 bg-white mb-12">
       <div className="container mx-auto max-w-6xl px-6">
         {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">

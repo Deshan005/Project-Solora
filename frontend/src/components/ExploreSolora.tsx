@@ -2,13 +2,13 @@
 export default function ExploreSolora() {
   return (
     <section className="bg-gradient-to-b from-[#f8f0fb] to-white py-20 text-center">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-serif text-gray-900">
           Explore Solora by <span className="text-pink-500">business type...</span>
         </h2>
 
         {/* Business Types */}
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {[
             "Hair Salons",
             "Beauty Studios",
@@ -33,14 +33,14 @@ export default function ExploreSolora() {
         </div>
 
         {/* Features */}
-        <h3 className="text-xl md:text-2xl font-serif text-gray-900 mt-16">
+        <h3 className="text-xl md:text-2xl font-serif text-gray-900 mt-24">
           ...or learn more about our <span className="text-pink-500">features</span>
         </h3>
 
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
           {/* Booking & Scheduling */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 mb-3">
+            <h4 className="text-xs font-semibold text-gray-600 mb-3">
               Booking & Scheduling
             </h4>
             <ul className="space-y-2 text-gray-700 text-sm">
@@ -52,7 +52,7 @@ export default function ExploreSolora() {
 
           {/* Staff Management */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 mb-3">
+            <h4 className="text-xs font-semibold text-gray-600 mb-3">
               Staff Management
             </h4>
             <ul className="space-y-2 text-gray-700 text-sm">
@@ -64,7 +64,7 @@ export default function ExploreSolora() {
 
           {/* Business Analytics */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 mb-3">
+            <h4 className="text-xs font-semibold text-gray-600 mb-3">
               Business Analytics
             </h4>
             <ul className="space-y-2 text-gray-700 text-sm">
@@ -76,7 +76,7 @@ export default function ExploreSolora() {
 
           {/* Client Services & Operations */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-600 mb-3">
+            <h4 className="text-xs font-semibold text-gray-600 mb-3">
               Client Services & Operations
             </h4>
             <ul className="space-y-2 text-gray-700 text-sm">
