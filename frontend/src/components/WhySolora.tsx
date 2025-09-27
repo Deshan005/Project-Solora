@@ -13,7 +13,7 @@ export default function WhySolora() {
         </h2>
         <p className="text-gray-600 mt-4">
           We save your time, drive growth, and keep clients coming back.
-          Here’s how our platform boosts salon business success.
+          Here's how our platform boosts salon business success.
         </p>
         <button className="mt-6 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full font-medium shadow-lg hover:opacity-90 transition">
           Learn why we&apos;re different
