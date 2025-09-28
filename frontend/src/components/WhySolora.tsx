@@ -1,9 +1,16 @@
 'use client'
+
+import Image from "next/image";
+import image1 from "../assets/person1.png";
+import image2 from "../assets/person2.png";
+import image3 from "../assets/person3.png";
+
 // components/WhySolora.tsx
 export default function WhySolora() {
   return (
-    
-    <section className="bg-gradient-to-b from-white via-white to-[#f8f0fb] py-20 text-center">
+    <section
+      className="bg-gradient-to-b from-[#FCFAFE] via-[#FCECF1] to-[#FCF5F0] py-20 text-center"
+    >
       <div className="max-w-2xl mx-auto">
         <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase">
           Why Solora
@@ -20,92 +27,83 @@ export default function WhySolora() {
         </button>
       </div>
 
-    {/* Customer Stories Card */}
-    <div className="mt-16 max-w-2xl mx-auto bg-[#1c1c3d] text-white rounded-3xl p-10 shadow-xl h-[600px] overflow-hidden relative">
-    <p className="text-xs uppercase tracking-wider text-gray-400">
-        Customer Stories
-    </p>
-    <h3 className="text-2xl font-serif mt-2">
-        Loved by thousands of salons and spas
-    </h3>
+      {/* Customer Stories Card */}
+      <div className="mt-16 max-w-2xl mx-auto bg-[#1c1c3d] text-white rounded-3xl p-10 shadow-xl h-[800px] overflow-hidden relative">
+        <p className="text-xs font-poppins uppercase tracking-wider mt-10 bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent">
+          Customer Stories
+        </p>
+        <h3 className="text-4xl font-serif mt-6 font-cormorant">
+          Loved by thousands of salons and spas
+        </h3>
 
-    {/* Horizontal scrolling container */}
-    <div className="mt-8 overflow-x-hidden relative h-[500px]">
-        <div className="flex gap-6 animate-scroll">
-        <div className="rounded-2xl overflow-hidden bg-white text-gray-900 shadow min-w-[250px] h-[400px] flex-shrink-0">
-            <img
-            src="/images/person1.jpg"
-            alt="Customer 1"
-            className="w-full h-72 object-cover"
-            />
-            <div className="p-4 text-sm">
-            <p className="font-medium">Alic Degerman</p>
-            <p className="text-gray-500">CEO, House of Angels</p>
+        {/* Horizontal scrolling container */}
+        <div className="mt-16 relative">
+          <div className="flex gap-8 animate-scroll">
+            {/* Card 1 */}
+            <div className="flex flex-col items-center min-w-[300px] flex-shrink-0">
+              <div className="rounded-2xl overflow-hidden bg-white text-gray-900 shadow w-[300px] h-[450px] flex-shrink-0">
+                <Image
+                  src={image1}
+                  alt="Smart Calendar"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-cormorant text-lg">Le Deguzman</p>
+                <p className="font-poppins text-sm">Gold Dust</p>
+              </div>
             </div>
-        </div>
 
-        <div className="rounded-2xl overflow-hidden bg-white text-gray-900 shadow min-w-[250px] h-[400px] flex-shrink-0">
-            <img
-            src="/images/person2.jpg"
-            alt="Customer 2"
-            className="w-full h-72 object-cover"
-            />
-            <div className="p-4 text-sm">
-            <p className="font-medium">Emily Kane</p>
-            <p className="text-gray-500">Resident Stylist</p>
+            {/* Card 2 */}
+            <div className="flex flex-col items-center min-w-[300px] flex-shrink-0">
+              <div className="rounded-2xl overflow-hidden bg-white text-gray-900 shadow w-[300px] h-[450px] flex-shrink-0">
+                <Image
+                  src={image2}
+                  alt="Smart Calendar"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-cormorant text-lg">Emily Katz</p>
+                <p className="font-poppins text-sm">Bare Laser Medspa</p>
+              </div>
             </div>
-        </div>
 
-        <div className="rounded-2xl overflow-hidden bg-white text-gray-900 shadow min-w-[250px] h-[400px] flex-shrink-0">
-            <img
-            src="/images/person3.jpg"
-            alt="Customer 3"
-            className="w-full h-72 object-cover"
-            />
-            <div className="p-4 text-sm">
-            <p className="font-medium">Monica DeAngelis</p>
-            <p className="text-gray-500">Barber Lady Mentor</p>
+            {/* Card 3 */}
+            <div className="flex flex-col items-center min-w-[300px] flex-shrink-0">
+              <div className="rounded-2xl overflow-hidden bg-white text-gray-900 shadow w-[300px] h-[450px] flex-shrink-0">
+                <Image
+                  src={image3}
+                  alt="Smart Calendar"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <p className="font-cormorant text-lg">Monica DeAngelis</p>
+                <p className="font-poppins text-sm">House of Aanuko</p>
+              </div>
             </div>
-        </div>
 
-        {/* Duplicate cards for continuous scroll */}
-        <div className="rounded-2xl overflow-hidden bg-white text-gray-900 shadow min-w-[250px] h-[400px] flex-shrink-0">
-            <img
-            src="/images/person1.jpg"
-            alt="Customer 1"
-            className="w-full h-72 object-cover"
-            />
-            <div className="p-4 text-sm">
-            <p className="font-medium">Alic Degerman</p>
-            <p className="text-gray-500">CEO, House of Angels</p>
-            </div>
+            {/* Add other cards... */}
+          </div>
         </div>
-        <div className="rounded-2xl overflow-hidden bg-white text-gray-900 shadow min-w-[250px] h-[480px] flex-shrink-0">
-            <img
-            src="/images/person2.jpg"
-            alt="Customer 2"
-            className="w-full h-72 object-cover"
-            />
-            <div className="p-4 text-sm">
-            <p className="font-medium">Emily Kane</p>
-            <p className="text-gray-500">Resident Stylist</p>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    <style jsx>{`
-    @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-    }
+      </div>
 
-    .animate-scroll {
-        display: flex;
-        gap: 1.5rem;
-        animation: scroll 30s linear infinite;
-    }
-    `}</style>
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          display: flex;
+          gap: 1.5rem;
+          animation: scroll 30s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }

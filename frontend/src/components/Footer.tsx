@@ -1,15 +1,16 @@
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-tr from-purple-100 via-pink-100 to-white py-16">
+<footer className="bg-gradient-to-r from-[#F9F7FE] via-[#FEFBFB] to-[#FFFCFA] py-16">
       <div className="max-w-7xl mx-auto px-8">
+        {/* Main Footer Card */}
         <div className="bg-[#1e1e4d] rounded-3xl p-12 text-white">
           {/* Top Grid */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {/* Logo + Platform Section */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold tracking-wide">SOLORA</h2>
+              <h2 className="text-4xl font-cormorant tracking-wide">SOLORA</h2>
               <div className="p-6 rounded-2xl bg-white/5">
-                <h3 className="text-sm font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
+                <h3 className="text-sm font-poppins font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
                   PLATFORM
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm leading-6">
@@ -25,10 +26,10 @@ const Footer = () => {
 
             {/* Business Types Section */}
             <div className="p-6 rounded-2xl bg-white/5">
-              <h3 className="text-sm font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
+              <h3 className="text-sm font-poppins font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
                 BUSINESS TYPES
               </h3>
-              <ul className="space-y-2 text-gray-300 text-sm leading-6">
+              <ul className="space-y-2 text-gray-300 text-sm leading-6 font-roboto">
                 <li>Hair Salons</li>
                 <li>Med Spas</li>
                 <li>IV Therapy</li>
@@ -44,9 +45,9 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Features Section (Wider + Split into 2 columns) */}
+            {/* Features Section */}
             <div className="md:col-span-2 p-6 rounded-2xl bg-white/5">
-              <h3 className="text-sm font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
+              <h3 className="text-sm font-poppins font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
                 FEATURES
               </h3>
               <div className="grid grid-cols-2 gap-4">
@@ -77,10 +78,10 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Resources & Socials Section */}
+            {/* Resources & Socials */}
             <div className="space-y-8">
               <div className="p-6 rounded-2xl bg-white/5">
-                <h3 className="text-sm font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
+                <h3 className="text-sm font-poppins font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
                   RESOURCES
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm leading-6">
@@ -90,7 +91,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="p-6 rounded-2xl bg-white/5">
-                <h3 className="text-sm font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
+                <h3 className="text-sm font-poppins font-bold bg-gradient-to-r from-pink-400 to-orange-300 bg-clip-text text-transparent mb-4">
                   FOLLOW US
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm leading-6">
@@ -105,15 +106,28 @@ const Footer = () => {
 
           {/* Bottom Section */}
           <div className="mt-12 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs">
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <p>© Margemint. Inc. All rights reserved.</p>
-              <div className="flex gap-4">
-                <a href="#" className="hover:text-white transition-colors">Legal</a>
-                <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              </div>
+            <p>© Mangomint, Inc. All rights reserved.</p>
+            <div className="flex gap-4">
+              <a href="#" className="hover:text-white transition-colors">Legal</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Inspirational Text */}
+      <div className="mt-10 flex justify-center">
+        <div className="relative">
+          {/* Gradient Oval */}
+          <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-orange-300 p-[2px]">
+            <div className="w-full h-full rounded-full bg-white"></div>
+          </div>
+
+          {/* Text */}
+          <span className="relative px-6 py-2 text-gray-800 font-cormorant text-lg">
+            Do something beautiful today.
+          </span>
         </div>
       </div>
     </footer>

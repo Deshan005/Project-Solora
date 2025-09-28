@@ -28,10 +28,10 @@ const Features = () => {
             <button
               key={feature.id}
               onClick={() => setActiveTab(feature.id)}
-              className={`px-6 py-3 rounded-full font-medium transition-all font-roboto ${
+              className={`px-6 py-3 rounded-full font-poppins transition-all ${
                 activeTab === feature.id
-                  ? "bg-white-600 text-black shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  ? "bg-white-600 text-gray-500 shadow-lg"
+                  : "bg-white text-gray-500 hover:bg-gray-100"
               }`}
             >
               {feature.name}
