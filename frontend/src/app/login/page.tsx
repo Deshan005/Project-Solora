@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
+import logo from "../../assets/logo.png"
 
 const LoginPage = () => {
   const [form, setForm] = useState({ email: "", password: "", remember: false });
@@ -55,8 +57,16 @@ const LoginPage = () => {
           <div className="card w-full max-w-md space-y-6 mb-6">
             {/* Logo - Cormorant Garamond */}
             <div className="text-center">
-              <h1 className="text-4xl font-bold text-primary mb-2 font-cormorant">SQRA</h1>
-              <p className="text-3xl text-black font-cormorant">Welcome back</p>
+            <div className="flex items-center justify-center mt-4">
+                <Image
+                src={logo}
+                alt="Frezka Logo"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
+            </div>
+              <p className="text-3xl text-black font-cormorant mt-10">Welcome back</p>
               <p className="text-sm mt-2 text-tertiary font-roboto">Ready to elevate your business</p>
             </div>
 
@@ -113,7 +123,7 @@ const LoginPage = () => {
                   />
                   <span className="text-secondary">Remember me</span>
                 </label>
-                <Link href="/forgot-password" className="text-primary-color hover:underline font-medium">
+                <Link href="/reset" className="text-primary-color hover:underline font-medium">
                   Forgot password?
                 </Link>
               </div>

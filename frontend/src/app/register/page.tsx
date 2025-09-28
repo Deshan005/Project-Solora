@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
+import logo from "../../assets/logo.png"
 
 const RegisterPage = () => {
   const [form, setForm] = useState({ 
@@ -53,18 +55,26 @@ const RegisterPage = () => {
           <div className="card w-full max-w-md space-y-6 mb-6">
             {/* Logo */}
             <div className="text-center">
-              <h1 className="text-4xl font-bold text-primary mb-2">SQRA</h1>
-              <p className="text-lg text-secondary">Start your journey</p>
-              <p className="text-sm text-tertiary">Build the business you envision</p>
+            <div className="flex items-center justify-center mt-2">
+                <Image
+                src={logo}
+                alt="Frezka Logo"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
+            </div>              
+            <p className="text-lg text-secondary mt-6">Start your journey</p>
+            <p className="text-sm text-tertiary">Build the business you envision</p>
             </div>
 
             {/* Google Button */}
             <button
               onClick={handleGoogleRegister}
-              className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-xl py-4 hover:bg-gray-50 transition"
+              className="w-full h-10 flex items-center justify-center gap-3 border border-gray-300 rounded-xl py-4 hover:bg-gray-50 transition font-poppins"
             >
-              <FcGoogle size={20} />
-              <span className="text-gray-700 font-medium">Continue with Google</span>
+              <FcGoogle size={18} />
+              <span className="text-black font-medium">Continue with Google</span>
             </button>
 
             {/* Divider */}

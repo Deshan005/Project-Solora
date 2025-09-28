@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "../../assets/logo.png"
+
+
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState("");
@@ -33,16 +37,22 @@ const ForgotPasswordPage = () => {
           <div className="card w-full max-w-md space-y-6 mb-6">
             {/* Logo */}
             <div className="text-center">
-              <h1 className="text-4xl font-bold text-primary mb-2">SQRA</h1>
-              <p className="text-lg text-secondary">Forgot Password</p>
+            <div className="flex items-center justify-center mt-4">
+                <Image
+                src={logo}
+                alt="Frezka Logo"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
+            </div>
+            <p className="text-4xl text-black mt-8 font-cormorant">Forgot Password 🔒</p>
             </div>
 
             {!submitted ? (
               <>
-                <p className="text-sm text-tertiary text-center">
-                  Enter your email and we'll send you reset instructions
-                </p>
-
+                <p className="text-1xl font-roboto text-secondary text-center">
+                  Enter your email and we'll send you<br/>instructions to reset your password</p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-primary mb-2">Email</label>
@@ -56,13 +66,13 @@ const ForgotPasswordPage = () => {
                     />
                   </div>
 
-                  <button type="submit" className="btn-primary w-full py-3 text-white hover:btn-primary">
-                    Send Reset Link
+                  <button type="submit" className="btn-primary w-full font-cormorant py-3 text-white hover:btn-primary">
+                    <span className="text-lg">Sign in</span>
                   </button>
                 </form>
                 <Link 
                   href="/login" 
-                  className="text-primary-color w-full hover:btn-primary block text-center"
+                  className="text-primary-color text-lg font-cormorant w-full hover:btn-primary block text-center"
                 >
                   Back to Login
                 </Link>
