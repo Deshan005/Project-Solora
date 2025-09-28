@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="hidden md:flex space-x-6">
               <a href="#why" className="nav-link">Why Solora</a>
               <a href="#Businesses" className="nav-link">Businesses</a>
-              <a href="#Feautures" className="nav-link">Feautures</a>
+              <a href="#Feautures" className="nav-link">Features</a>
               <a href="#Pricing" className="nav-link">Pricing</a>
             </div>
           </div>

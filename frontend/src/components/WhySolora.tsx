@@ -1,9 +1,9 @@
 'use client'
 
 import Image from "next/image";
-import image1 from "../assets/person1.png";
-import image2 from "../assets/person2.png";
-import image3 from "../assets/person3.png";
+import image1 from "../assets/why/person1.png";
+import image2 from "../assets/why/person2.png";
+import image3 from "../assets/why/person3.png";
 
 // components/WhySolora.tsx
 export default function WhySolora() {
@@ -22,7 +22,7 @@ export default function WhySolora() {
           We save your time, drive growth, and keep clients coming back.
           Here's how our platform boosts salon business success.
         </p>
-        <button className="mt-6 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full font-medium shadow-lg hover:opacity-90 transition">
+        <button className="mt-6 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full font-medium font-cormorant shadow-lg hover:opacity-90 transition">
           Learn why we&apos;re different
         </button>
       </div>

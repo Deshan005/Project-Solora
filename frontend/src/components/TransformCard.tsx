@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import image1 from "../assets/image1.jpg"
+import image1 from "../assets/hero/image1.jpg"
 
 // components/TransformCard.tsx
 export default function TransformCard() {

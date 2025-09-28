@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import image1 from "../assets/image1.jpg"
-import image2 from "../assets/image2.jpg"
-import image3 from "../assets/image3.jpg"
-import image4 from "../assets/image4.jpg"
-import image5 from "../assets/image5.jpg"
+import image1 from "../assets/hero/image1.jpg"
+import image2 from "../assets/hero/image2.jpg"
+import image3 from "../assets/hero/image3.jpg"
+import image4 from "../assets/hero/image4.jpg"
+import image5 from "../assets/hero/image5.jpg"
 
 const Features = () => {
   const [activeTab, setActiveTab] = useState("calendar");
