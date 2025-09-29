@@ -15,13 +15,16 @@ const Navbar = () => {
           <div className="flex items-center space-x-20">
             {/* Logo */}
             <div className="flex items-center">
+              <a href="/homepage">
               <Image
                 src={logo}
                 alt="Frezka Logo"
                 width={120}
                 height={40}
                 className="object-contain"
-              />
+              />                
+              </a>
+
             </div>
 
             {/* Nav Links */}
@@ -40,7 +43,7 @@ const Navbar = () => {
                 <FaChevronDown className="text-sm text-gray-700 mt-0.5" />
               </a>
 
-              <a href="#Pricing" className="nav-link">Pricing</a>
+              <a href="/pricing" className="nav-link">Pricing</a>
             </div>
           </div>
 

@@ -267,16 +267,17 @@
 /* Font family classes */
 .font-cormorant {
   font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
 }
 
 .font-poppins {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 14px;
 }
 
 .font-roboto {
   font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
 
 /* Apply default font to body */
@@ -326,3 +327,12 @@ body {
 .animate-scroll {
   animation: scroll 20s linear infinite;
 }
+
+
+
+    .wavy-line-container {
+        /* Example using a complex border-radius for a wavy effect */
+        border-radius: 50% 50% 0 0 / 100px 100px 0 0; /* Adjust values for desired wave */
+        /* Or use clip-path for more control */
+        /* clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); */
+    }
