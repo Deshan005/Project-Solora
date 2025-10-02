@@ -53,6 +53,10 @@
   justify-content: center;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .bg-surface1 {
   background: linear-gradient(135deg, var(--primary-300) 0%, var(--primary-main) 50%, var(--primary-400) 100%);
 }
