@@ -37,20 +37,86 @@ export default function TrustedBy() {
   const bottomRowLogos = [bottom1, bottom2, bottom3, bottom4, bottom5, bottom6, bottom7, bottom8];
 
   return (
-    <div className="relative flex w-full items-center overflow-hidden bg-white py-24">
-      {/* Left column */}
-      <div className="z-10 w-2/5 space-y-6 pl-24">
-        <h2 className="text-2xl font-cormorant text-gray-900 leading-snug">
-          #1 highest-rated by <br />
-          thousands of beauty & <br />
-          wellness professionals
+    <div className="relative w-full bg-white py-24">
+      {/* Desktop version */}
+      <div className="hidden md:flex relative w-full items-center overflow-hidden">
+        {/* Left column */}
+        <div className="z-10 w-2/5 space-y-6 pl-24">
+          <h2 className="text-2xl font-cormorant text-gray-900 leading-snug">
+            #1 highest-rated by <br />
+            thousands of beauty & <br />
+            wellness professionals
+          </h2>
+
+          {/* Ratings */}
+          <div className="flex items-center gap-6 overflow-hidden mt-4">
+            {ratingPlatforms.map((p, i) => (
+              <div key={i} className="flex items-center space-x-2 min-w-[120px]">
+                <Image src={p.logo} alt="platform" width={80} height={24} className="object-contain" />
+                <div className="flex space-x-0.5 text-orange-400 text-sm">
+                  {Array.from({ length: p.stars }).map((_, j) => (
+                    <span key={j}>★</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Logos scrolling */}
+        <div className="absolute right-0 top-0 h-full w-full overflow-hidden">
+          <div className="absolute inset-0 flex flex-col justify-center space-y-8">
+            {/* Top row */}
+            <div className="flex animate-scroll whitespace-nowrap">
+              {topRowLogos.concat(topRowLogos).map((logo, i) => (
+                <div
+                  key={i}
+                  className="inline-flex min-w-[140px] h-20 flex-shrink-0 items-center justify-center rounded-xl bg-gray-50 shadow-lg"
+                >
+                  <Image
+                    src={logo}
+                    alt={`top-logo-${i}`}
+                    className="object-contain w-full h-full p-2"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom row */}
+            <div className="ml-8 flex animate-scroll whitespace-nowrap">
+              {bottomRowLogos.concat(bottomRowLogos).map((logo, i) => (
+                <div
+                  key={i}
+                  className="inline-flex min-w-[140px] h-20 flex-shrink-0 items-center justify-center rounded-xl bg-gray-50 shadow-lg"
+                >
+                  <Image
+                    src={logo}
+                    alt={`bottom-logo-${i}`}
+                    className="object-contain w-full h-full p-2"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Gradient overlays for desktop only */}
+        <div className="hidden md:block absolute left-0 top-0 h-full w-[50%] bg-gradient-to-r from-white via-white/100 to-transparent pointer-events-none"></div>
+        <div className="hidden md:block absolute right-0 top-0 h-full w-[10%] bg-gradient-to-l from-white via-white/90 to-transparent pointer-events-none"></div>
+      </div>
+
+      {/* Mobile version */}
+      <div className="flex flex-col md:hidden w-full items-center">
+        {/* Heading */}
+        <h2 className="text-xl font-cormorant text-center text-gray-900 mb-4">
+          #1 highest-rated by thousands of beauty & wellness professionals
         </h2>
 
-        {/* Ratings */}
-        <div className="flex items-center gap-6 overflow-hidden mt-4">
+        {/* Ratings row */}
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-6">
           {ratingPlatforms.map((p, i) => (
-            <div key={i} className="flex items-center space-x-2 min-w-[120px]">
-              <Image src={p.logo} alt="platform" width={80} height={24} className="object-contain" />
+            <div key={i} className="flex items-center space-x-1">
+              <Image src={p.logo} alt="platform" width={60} height={20} className="object-contain" />
               <div className="flex space-x-0.5 text-orange-400 text-sm">
                 {Array.from({ length: p.stars }).map((_, j) => (
                   <span key={j}>★</span>
@@ -59,48 +125,44 @@ export default function TrustedBy() {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Logos scrolling */}
-      <div className="absolute right-0 top-0 h-full w-full overflow-hidden">
-        <div className="absolute inset-0 flex flex-col justify-center space-y-8">
-          {/* Top row */}
-          <div className="flex animate-scroll whitespace-nowrap">
-            {topRowLogos.concat(topRowLogos).map((logo, i) => (
-              <div
-                key={i}
-                className="inline-flex min-w-[140px] h-20 flex-shrink-0 items-center justify-center rounded-xl bg-gray-50 shadow-lg"
-              >
-                <Image
-                  src={logo}
-                  alt={`top-logo-${i}`}
-                  className="object-contain w-full h-full p-2"
-                />
-              </div>
-            ))}
-          </div>
+        {/* Logos scrolling */}
+        <div className="w-full overflow-hidden">
+          <div className="flex flex-col justify-center space-y-4">
+            {/* Top row */}
+            <div className="flex animate-scroll whitespace-nowrap gap-4">
+              {topRowLogos.concat(topRowLogos).map((logo, i) => (
+                <div
+                  key={i}
+                  className="inline-flex min-w-[100px] h-16 flex-shrink-0 items-center justify-center rounded-xl bg-gray-50 shadow-lg"
+                >
+                  <Image
+                    src={logo}
+                    alt={`top-logo-${i}`}
+                    className="object-contain w-full h-full p-2"
+                  />
+                </div>
+              ))}
+            </div>
 
-          {/* Bottom row */}
-          <div className="ml-8 flex animate-scroll whitespace-nowrap">
-            {bottomRowLogos.concat(bottomRowLogos).map((logo, i) => (
-              <div
-                key={i}
-                className=" inline-flex min-w-[140px] h-20 flex-shrink-0 items-center justify-center rounded-xl bg-gray-50 shadow-lg"
-              >
-                <Image
-                  src={logo}
-                  alt={`bottom-logo-${i}`}
-                  className="object-contain w-full h-full p-2"
-                />
-              </div>
-            ))}
+            {/* Bottom row */}
+            <div className="flex animate-scroll whitespace-nowrap gap-4">
+              {bottomRowLogos.concat(bottomRowLogos).map((logo, i) => (
+                <div
+                  key={i}
+                  className="inline-flex min-w-[100px] h-16 flex-shrink-0 items-center justify-center rounded-xl bg-gray-50 shadow-lg"
+                >
+                  <Image
+                    src={logo}
+                    alt={`bottom-logo-${i}`}
+                    className="object-contain w-full h-full p-2"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Gradient overlays */}
-      <div className="absolute left-0 top-0 h-full w-[70%] bg-gradient-to-r from-white via-white/100 to-transparent pointer-events-none"></div>
-      <div className="absolute right-0 top-0 h-full w-[5%] bg-gradient-to-l from-white via-white/90 to-transparent pointer-events-none"></div>
 
       {/* Scroll animation */}
       <style jsx>{`

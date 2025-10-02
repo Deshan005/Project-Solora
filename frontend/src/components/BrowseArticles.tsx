@@ -10,7 +10,7 @@ import img5 from "../assets/blogs/browse/img5.png";
 import img6 from "../assets/blogs/browse/img6.png";
 import EmailMarketingFeature from "./MarketingFeature";
 
-// ✅ Dummy extra articles
+// Dummy extra articles
 const extraArticles = Array.from({ length: 24 }, (_, i) => ({
   id: i + 7,
   category: i % 2 === 0 ? "Guides" : "Features",
@@ -20,7 +20,7 @@ const extraArticles = Array.from({ length: 24 }, (_, i) => ({
   image: [img1, img2, img3, img4, img5, img6][i % 6],
 }));
 
-// ✅ Combine all articles
+// Combine all articles
 const articles = [
   {
     id: 1,
@@ -76,62 +76,58 @@ const articles = [
 export default function BrowseArticles() {
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
         {/* Heading */}
-        <h2 className="text-4xl font-cormorant font-bold text-gray-900 text-left mb-6">
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-cormorant font-bold text-gray-900 text-left mb-6">
           Browse Articles
         </h2>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-left gap-4 mb-14">
-          <button className="px-4 py-2 font-poppins text-xs bg-gray-600 text-white rounded-full hover:bg-gray-500 transition">
-            See All
-          </button>
-          <button className="px-4 py-2 font-poppins text-xs border border-gray-300 text-gray-700 rounded-full hover:bg-gray-100 transition">
-            Features
-          </button>
-          <button className="px-4 py-2 font-poppins text-xs border border-gray-300 text-gray-700 rounded-full hover:bg-gray-100 transition">
-            Guides
-          </button>
-          <button className="px-4 py-2 font-poppins text-xs border border-gray-300 text-gray-700 rounded-full hover:bg-gray-100 transition">
-            Industry
-          </button>
-          <button className="px-4 py-2 font-poppins text-xs border border-gray-300 text-gray-700 rounded-full hover:bg-gray-100 transition">
-            Company
-          </button>
-          <button className="px-4 py-2 font-poppins text-xs border border-gray-300 text-gray-700 rounded-full hover:bg-gray-100 transition">
-            Tools
-          </button>
+        <div className="flex flex-wrap justify-start gap-3 sm:gap-4 mb-14">
+          {["See All", "Features", "Guides", "Industry", "Company", "Tools"].map(
+            (btn) => (
+              <button
+                key={btn}
+                className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-poppins rounded-full transition ${
+                  btn === "See All"
+                    ? "bg-gray-600 text-white hover:bg-gray-500"
+                    : "border border-gray-300 text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                {btn}
+              </button>
+            )
+          )}
         </div>
 
         {/* Articles with marketing blocks inserted */}
         <div className="space-y-16">
           {/* First 6 articles */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 font-cormorant text-[#191E49]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 font-cormorant text-[#191E49]">
             {articles.slice(0, 6).map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>
 
           {/* Marketing Component */}
-          <div className="-mx-36">
+          <div className="mx-0 sm:-mx-36">
             <EmailMarketingFeature />
           </div>
 
           {/* Next 6 articles */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 font-cormorant text-[#191E49]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 font-cormorant text-[#191E49]">
             {articles.slice(6, 12).map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>
 
           {/* Marketing Component again */}
-          <div className="-mx-36">
+          <div className="mx-0 sm:-mx-36">
             <EmailMarketingFeature />
           </div>
 
           {/* Rest of articles */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 font-cormorant text-[#191E49]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 font-cormorant text-[#191E49]">
             {articles.slice(12).map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
@@ -142,7 +138,7 @@ export default function BrowseArticles() {
   );
 }
 
-// ✅ Extracted ArticleCard for cleaner structure
+// ArticleCard Component
 function ArticleCard({ article }: { article: any }) {
   return (
     <div className="group">
@@ -155,13 +151,13 @@ function ArticleCard({ article }: { article: any }) {
           className="w-full h-[240px] object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
-      <p className="mt-3 font-poppins text-xs uppercase tracking-widest text-[#191E49] font-medium">
+      <p className="mt-3 font-poppins text-xs sm:text-sm uppercase tracking-widest text-[#191E49] font-medium">
         {article.category}
       </p>
-      <h3 className="text-3xl font-cormorant font-semibold text-gray-900 mt-1 group-hover:text-[#191E49] transition">
+      <h3 className="text-2xl sm:text-3xl font-cormorant font-semibold text-gray-900 mt-1 group-hover:text-[#191E49] transition">
         {article.title}
       </h3>
-      <p className="text-sm text-gray-500 mt-1">
+      <p className="text-xs sm:text-sm text-gray-500 mt-1">
         By {article.author} • {article.date}
       </p>
     </div>

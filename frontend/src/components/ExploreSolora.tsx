@@ -1,28 +1,31 @@
-// components/ExploreSolora.tsx
+'use client'
+
 export default function ExploreSolora() {
+  const businessTypes = [
+    "Hair Salons",
+    "Beauty Studios",
+    "Nail Salons",
+    "Med Spas",
+    "Massage Studios",
+    "Barbershops",
+    "IV Therapy",
+    "Hair Removal",
+    "Wellness Centers",
+    "Skincare Studios",
+    "Tattoo & Piercing",
+    "Spas",
+  ];
+
   return (
-    <section className="bg-gradient-to-b from-[#f8f0fb] to-white py-20 text-center">
+    <section className="bg-gradient-to-b from-[#f8f0fb] to-white py-20 text-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-serif text-gray-900">
+        <h2 className="text-2xl sm:text-3xl font-serif text-gray-900">
           Explore Solora by <span className="text-pink-500">business type...</span>
         </h2>
 
-        {/* Business Types */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {[
-            "Hair Salons",
-            "Beauty Studios",
-            "Nail Salons",
-            "Med Spas",
-            "Massage Studios",
-            "Barbershops",
-            "IV Therapy",
-            "Hair Removal",
-            "Wellness Centers",
-            "Skincare Studios",
-            "Tattoo & Piercing",
-            "Spas",
-          ].map((item) => (
+        {/* Business Types - Mobile shows 2 columns */}
+        <div className="mt-12 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {businessTypes.map((item) => (
             <div
               key={item}
               className="px-4 py-3 bg-white rounded-lg shadow-sm border border-gray-100 text-gray-700 text-sm hover:shadow-md transition"
@@ -33,14 +36,14 @@ export default function ExploreSolora() {
         </div>
 
         {/* Features */}
-        <h3 className="text-xl md:text-2xl font-serif text-gray-900 mt-24">
+        <h3 className="text-xl sm:text-2xl font-serif text-gray-900 mt-16 sm:mt-24">
           ...or learn more about our <span className="text-pink-500">features</span>
         </h3>
 
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-left">
           {/* Booking & Scheduling */}
           <div>
-            <h4 className="text-xs font-semibold text-gray-600 mb-3">
+            <h4 className="text-xs sm:text-sm font-semibold text-gray-600 mb-3">
               Booking & Scheduling
             </h4>
             <ul className="space-y-2 text-gray-700 text-sm">
@@ -52,7 +55,7 @@ export default function ExploreSolora() {
 
           {/* Staff Management */}
           <div>
-            <h4 className="text-xs font-semibold text-gray-600 mb-3">
+            <h4 className="text-xs sm:text-sm font-semibold text-gray-600 mb-3">
               Staff Management
             </h4>
             <ul className="space-y-2 text-gray-700 text-sm">
@@ -64,7 +67,7 @@ export default function ExploreSolora() {
 
           {/* Business Analytics */}
           <div>
-            <h4 className="text-xs font-semibold text-gray-600 mb-3">
+            <h4 className="text-xs sm:text-sm font-semibold text-gray-600 mb-3">
               Business Analytics
             </h4>
             <ul className="space-y-2 text-gray-700 text-sm">
@@ -76,7 +79,7 @@ export default function ExploreSolora() {
 
           {/* Client Services & Operations */}
           <div>
-            <h4 className="text-xs font-semibold text-gray-600 mb-3">
+            <h4 className="text-xs sm:text-sm font-semibold text-gray-600 mb-3">
               Client Services & Operations
             </h4>
             <ul className="space-y-2 text-gray-700 text-sm">
