@@ -5,6 +5,7 @@ import BookingFeaturesGrid from "@/components/BookingFeaturesList";
 import ExploreSolora from "@/components/ExploreSolora";
 import Footer from "@/components/Footer";
 import TransformCard from "@/components/TransformCard";
+import WaveGradient from "@/components/WaveGradient";
 
 export default function LandingPage(){
     return(

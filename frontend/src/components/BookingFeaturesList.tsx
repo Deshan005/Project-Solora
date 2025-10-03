@@ -18,137 +18,97 @@ const features = [
   {
     id: 1,
     title: "Direct Website Booking",
-    description: `Integrate Solora’s booking widget seamlessly into your website,
-      letting clients schedule appointments instantly.
+    description: `Integrate Solora’s booking widget seamlessly into your website, letting clients schedule appointments instantly.
 
-      Cut down on phone calls and administrative work with our
-      user-friendly system that requires no sign-ups or passwords —
-      just simple, direct booking.`,
+      Cut down on phone calls and administrative work with our user-friendly system that requires no sign-ups or passwords — just simple, direct booking.`,
     image: img1,
   },
   {
     id: 2,
     title: "Deliver an Outstanding Client Experience",
-    description: `Create a seamless booking journey with Solora’s intuitive platform
-      that works flawlessly across all devices.
+    description: `Create a seamless booking journey with Solora’s intuitive platform that works flawlessly across all devices.
 
-      Your clients can book appointments instantly using just their
-      name and contact information — no account setup required, no
-      complicated steps, just effortless scheduling.`,
+      Your clients can book appointments instantly using just their name and contact information — no account setup required, no complicated steps, just effortless scheduling.`,
     image: img2,
   },
   {
     id: 3,
     title: "Complete Customization Control",
-    description: `Solora’s booking platform adapts to your business with extensive
-      customization options designed for your unique needs.
+    description: `Solora’s booking platform adapts to your business with extensive customization options designed for your unique needs.
 
-      Choose which staff and services to display, control pricing
-      options, set group appointment availability, manage seasonal
-      promotions, and brand your booking interface with your logo and
-      colors.`,
+      Choose which staff and services to display, control pricing options, set group appointment availability, manage seasonal promotions, and brand your booking interface with your logo and colors.`,
     image: img3,
   },
   {
     id: 4,
-    title: "Direct Website Booking",
-    description: `Integrate Solora’s booking widget seamlessly into your website,
-      letting clients schedule appointments instantly.
+    title: "Multi-Guest Appointments Made Easy",
+    description: `Let clients schedule group appointments with multiple people and services in one simple booking process. 
 
-      Cut down on phone calls and administrative work with our
-      user-friendly system that requires no sign-ups or passwords —
-      just simple, direct booking.`,
+    Each guest's contact information is captured automatically, so everyone stays informed with their own confirmations, reminders, and pre-appointment paperwork.`,
     image: img4,
   },
   {
     id: 5,
-    title: "Deliver an Outstanding Client Experience",
-    description: `Create a seamless booking journey with Solora’s intuitive platform
-      that works flawlessly across all devices.
+    title: "Allow clients to customize their appointments",
+    description: `Let clients tailor their services with optional add-ons, preferences, and special requests at the time of booking.
 
-      Your clients can book appointments instantly using just their
-      name and contact information — no account setup required, no
-      complicated steps, just effortless scheduling.`,
+    Deliver a completely personalized experience while increasing revenue with built-in upselling opportunities.`,
     image: img5,
   },
   {
     id: 6,
-    title: "Complete Customization Control",
-    description: `Solora’s booking platform adapts to your business with extensive
-      customization options designed for your unique needs.
+    title: "Custom Appointments, Higher Revenue",
+    description: `Let clients build their ideal service experience with optional upgrades, personal preferences, and special requests during online booking. 
 
-      Choose which staff and services to display, control pricing
-      options, set group appointment availability, manage seasonal
-      promotions, and brand your booking interface with your logo and
-      colors.`,
+    Solora's smart customization features enhance client satisfaction while automatically presenting revenue-boosting opportunities.`,
     image: img6,
   },
   {
     id: 7,
-    title: "Direct Website Booking",
-    description: `Integrate Solora’s booking widget seamlessly into your website,
-      letting clients schedule appointments instantly.
+    title: "Smart Cancellation Policy Management",
+    description: `Automatically present and require acceptance of your cancellation terms at booking time. 
 
-      Cut down on phone calls and administrative work with our
-      user-friendly system that requires no sign-ups or passwords —
-      just simple, direct booking.`,
+    Reduce revenue loss from no-shows and late cancellations while maintaining comprehensive acceptance records that strengthen your position in disputes and chargeback situations.`,
     image: img7,
   },
   {
     id: 8,
-    title: "Deliver an Outstanding Client Experience",
-    description: `Create a seamless booking journey with Solora’s intuitive platform
-      that works flawlessly across all devices.
+    title: "Secure Your Revenue with Credit Card Requirements",
+    description: `Choose which services require a credit card on file before booking completion. 
 
-      Your clients can book appointments instantly using just their
-      name and contact information — no account setup required, no
-      complicated steps, just effortless scheduling.`,
+    Protect your business income by securely collecting payment details, enabling you to charge for late cancellations and no-shows according to your policies.`,
     image: img8,
   },
   {
     id: 9,
-    title: "Complete Customization Control",
-    description: `Solora’s booking platform adapts to your business with extensive
-      customization options designed for your unique needs.
+    title: "Automated Payment Processing",
+    description: `Streamline your revenue flow by collecting deposits or full payments at the time of online booking. 
 
-      Choose which staff and services to display, control pricing
-      options, set group appointment availability, manage seasonal
-      promotions, and brand your booking interface with your logo and
-      colors.`,
+    Set service-specific payment rules with options for complete payment, percentage deposits, or flat-rate amounts tailored to your pricing structure.`,
     image: img9,
   },
   {
     id: 10,
-    title: "Direct Website Booking",
-    description: `Integrate Solora’s booking widget seamlessly into your website,
-      letting clients schedule appointments instantly.
+    title: "Real-Time Booking Alerts",
+    description: `Keep your finger on the pulse of your business with instant notifications for every appointment activity. 
 
-      Cut down on phone calls and administrative work with our
-      user-friendly system that requires no sign-ups or passwords —
-      just simple, direct booking.`,
+    Get immediate email and text updates when clients book, modify, or cancel appointments, ensuring you're always in the loop.`,
     image: img10,
   },
   {
     id: 11,
-    title: "Deliver an Outstanding Client Experience",
-    description: `Create a seamless booking journey with Solora’s intuitive platform
-      that works flawlessly across all devices.
+    title: "Smart Service-Specific Booking Links",
+    description: `Create targeted booking links that direct clients straight to specific services, service categories, or individual staff members. 
 
-      Your clients can book appointments instantly using just their
-      name and contact information — no account setup required, no
-      complicated steps, just effortless scheduling.`,
+    Share these customized links across your website, marketing campaigns, social media, and automated communications to show clients exactly the options they need.`,
     image: img11,
   },
   {
     id: 12,
-    title: "Complete Customization Control",
-    description: `Solora’s booking platform adapts to your business with extensive
-      customization options designed for your unique needs.
+    title: "Effortless Online Gift Card ",
+    description: `Enable clients to purchase gift cards directly through your booking platform, making it easy to discover and buy the perfect gift.
 
-      Choose which staff and services to display, control pricing
-      options, set group appointment availability, manage seasonal
-      promotions, and brand your booking interface with your logo and
-      colors.`,
+    Digital gift cards are automatically delivered to recipients via email and seamlessly integrate with your existing gift card management system for complete tracking.`,
     image: img12,
   },
 ];
@@ -161,7 +121,7 @@ export default function BookingFeatures() {
         {features.map((feature, index) => (
           <div
             key={feature.id}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-4 items-center`}
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}
           >
             {/* Text */}
             <div
@@ -169,10 +129,10 @@ export default function BookingFeatures() {
                 index % 2 !== 0 ? "lg:order-2 lg:pl-8" : "lg:pr-8"
               }`}
             >
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#191E49]">
+              <h2 className="text-2xl sm:text-4xl font-cormorant font-bold text-[#191E49]">
                 {feature.title}
               </h2>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed whitespace-pre-line text-justify">
+              <p className="text-sm font-poppins sm:text-base leading-relaxed whitespace-pre-line text-justify text-[#191E49]">
                 {feature.description}
               </p>
             </div>
