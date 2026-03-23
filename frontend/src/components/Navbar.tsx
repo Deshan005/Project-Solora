@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 h-24">
-      <div className="container mx-auto px-4 sm:px-6 py-4">
+      <div className="container mx-auto px-4 sm:px-6 py-6">
         <div className="flex items-center justify-between">
 
           {/* Left Section */}
@@ -37,7 +37,7 @@ const Navbar = () => {
             <div className="hidden lg:flex space-x-8 xl:space-x-10 font-roboto">
               <a href="#why" className="nav-link">Why Solora</a>
 
-              <a href="#Businesses" className="nav-link flex items-center gap-2">
+              <a href="/business" className="nav-link flex items-center gap-2">
                 Businesses
                 <FaChevronDown className="text-sm text-gray-700 mt-0.5" />
               </a>

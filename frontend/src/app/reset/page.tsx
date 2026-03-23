@@ -52,7 +52,7 @@ const ForgotPasswordPage = () => {
             {!submitted ? (
               <>
                 <p className="text-1xl font-roboto text-secondary text-center">
-                  Enter your email and we'll send you<br/>instructions to reset your password</p>
+                  Enter your email and we&apos;ll send you<br/>instructions to reset your password</p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-primary mb-2">Email</label>

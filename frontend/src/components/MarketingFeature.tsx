@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import img1 from "../assets/hero/image1.jpg";
+import img1 from "../assets/hero/image1.png";
 import vid from "../assets/blogs/browse/Container.png";
 
 export default function EmailMarketingFeature() {

@@ -15,7 +15,7 @@ export default function EffortlessBooking() {
         </h2>
         <p className="text-[#191E49] font-poppins leading-relaxed mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-2 sm:px-0">
           Give your clients the smoothest, most user-friendly appointment booking
-          experience designed specifically for today's salons and spas. With Solora's
+          experience designed specifically for today&apos;s salons and spas. With Solora&apos;s
           intuitive platform, scheduling becomes simple and stress-free.
         </p>
 

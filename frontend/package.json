@@ -17,6 +17,7 @@
     "dayjs": "^1.11.18",
     "embla-carousel-react": "^8.6.0",
     "emoji-picker-react": "^4.13.3",
+    "framer-motion": "^12.23.22",
     "jspdf": "^3.0.2",
     "jspdf-autotable": "^5.0.2",
     "lucide-react": "^0.542.0",

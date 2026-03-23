@@ -1,96 +1,149 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import image1 from "../assets/hero/image1.png"
-import image2 from "../assets/hero/image2.png"
-import image3 from "../assets/hero/image3.png"
-import image4 from "../assets/hero/image4.png"
-import image5 from "../assets/hero/image5.png"
+
+import image1 from "../assets/hero/image1.png";
+import image2 from "../assets/hero/image2.png";
+import image3 from "../assets/hero/image3.png";
+import image4 from "../assets/hero/image4.png";
+import image5 from "../assets/hero/image5.png";
+
+const images = [
+  { id: "calendar", src: image1, name: "CALENDAR" },
+  { id: "online-booking", src: image2, name: "ONLINE BOOKING" },
+  { id: "sales-payments", src: image3, name: "SALES & PAYMENTS" },
+  { id: "texting", src: image4, name: "TWO-WAY TEXTING" },
+  { id: "marketing", src: image5, name: "MARKETING" }
+];
 
 const Features = () => {
-  const [activeTab, setActiveTab] = useState("calendar");
+  const [current, setCurrent] = useState(0);
 
-  const features = [
-    { id: "calendar", name: "CALENDAR" },
-    { id: "online-booking", name: "ONLINE BOOKING" },
-    { id: "sales-payments", name: "SALES & PAYMENTS" },
-    { id: "texting", name: "TWO-WAY TEXTING" },
-    { id: "marketing", name: "MARKETING" }
-  ];
+  // const nextSlide = () => {
+  //   setCurrent((prev) => (prev + 1) % images.length);
+  // };
+
+  // const prevSlide = () => {
+  //   setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  // };
+
+  // framer-motion slide animation
+  const variants = {
+    enter: (direction : number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      zIndex: 10,
+      transition: { duration: 0.6 }
+    },
+    exit: (direction :number) => ({
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+      transition: { duration: 0.6 }
+    })
+  };
 
   return (
-    <section id="features" className="py-2 bg-white mb-12">
-      <div className="container mx-auto max-w-6xl px-6">
+    <section id="features" className="py-12 bg-white">
+      <div className="relative w-full max-w-7xl mx-auto px-4">
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {features.map((feature) => (
+        <div className="flex flex-wrap justify-center gap-4 mb-10">
+          {images.map((item, idx) => (
             <button
-              key={feature.id}
-              onClick={() => setActiveTab(feature.id)}
+              key={item.id}
+              onClick={() => setCurrent(idx)}
               className={`px-6 py-3 rounded-full font-poppins transition-all ${
-                activeTab === feature.id
-                  ? "bg-white-600 text-gray-500 shadow-lg"
-                  : "bg-white text-gray-500 hover:bg-gray-100"
+                current === idx
+                  ? "bg-gray-400 text-white shadow-lg"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
-              {feature.name}
+              {item.name}
             </button>
           ))}
         </div>
 
-        {/* Content */}
-        <div className="bg-gray-50 rounded-2xl p-8 min-h-[620px] text-center font-roboto relative overflow-hidden">
-        {activeTab === "calendar" && (
+        {/* Carousel */}
+        <div className="relative h-[600px] flex items-center justify-center overflow-hidden">
+          {/* Left preview */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[300px] h-[400px] opacity-40 pointer-events-none">
             <Image
-            src={image1}
-            alt="Smart Calendar"
-            fill
-            className="object-cover rounded-2xl"
-            priority
+              src={images[(current - 1 + images.length) % images.length].src}
+              alt="Previous Preview"
+              fill
+              className="object-cover rounded-xl"
             />
-        )}
+          </div>
 
-        {activeTab === "online-booking" && (
-            <Image
-            src={image2}
-            alt="Online Booking"
-            fill
-            className="object-cover rounded-2xl"
-            priority
-            />
-        )}
+          {/* Center image */}
+          <div className="relative w-[700px] h-[500px] rounded-2xl overflow-hidden shadow-2xl z-10">
+            <AnimatePresence initial={false} custom={1}>
+              <motion.div
+                key={current}
+                custom={1}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="absolute inset-0"
+              >
+                <Image
+                  src={images[current].src}
+                  alt={images[current].name}
+                  fill
+                  className="object-cover rounded-2xl"
+                  priority
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-        {activeTab === "sales-payments" && (
+          {/* Right preview */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[400px] opacity-40 pointer-events-none">
             <Image
-            src={image3}
-            alt="Sales and Payments"
-            fill
-            className="object-cover rounded-2xl"
-            priority
+              src={images[(current + 1) % images.length].src}
+              alt="Next Preview"
+              fill
+              className="object-cover rounded-xl"
             />
-        )}
-
-        {activeTab === "texting" && (
-            <Image
-            src={image4}
-            alt="Text Communication"
-            fill
-            className="object-cover rounded-2xl"
-            priority
-            />
-        )}
-
-        {activeTab === "marketing" && (
-            <Image
-            src={image5}
-            alt="Marketing Tools"
-            fill
-            className="object-cover rounded-2xl"
-            priority
-            />
-        )}
+          </div>
         </div>
+
+        {/* Buttons */}
+        {/* <div className="flex justify-center mt-8 gap-6">
+          <button
+            onClick={prevSlide}
+            className="px-6 py-3 rounded-full bg-purple-600 text-white font-medium shadow-md hover:bg-purple-700 transition"
+          >
+            ⟨ Prev
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="px-6 py-3 rounded-full bg-purple-600 text-white font-medium shadow-md hover:bg-purple-700 transition"
+          >
+            Next ⟩
+          </button>
+        </div> */}
+
+        {/* Dots */}
+        {/* <div className="flex justify-center mt-5 gap-3">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              className={`w-3 h-3 rounded-full ${
+                idx === current ? "bg-purple-600" : "bg-gray-300"
+              }`}
+            />
+          ))}
+        </div> */}
       </div>
     </section>
   );

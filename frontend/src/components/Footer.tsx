@@ -14,7 +14,7 @@ const Footer = () => {
                   PLATFORM
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm leading-6">
-                  <li>Why We're Different</li>
+                  <li>Why We&apos;re Different</li>
                   <li>Pricing</li>
                   <li>Watch a video tour</li>
                   <li>Book a live demo</li>

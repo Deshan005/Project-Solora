@@ -11,7 +11,7 @@ const FeatureComparison = () => {
         Feature Comparison Plans
       </h2>
       <p className="text-center font-poppins text-lg text-gray-600 mb-10">
-        Choose a plan that best fits your salon's needs. Start with a free trial,
+        Choose a plan that best fits your salon&apos;s needs. Start with a free trial,
         then pick a package that grows with your business.
       </p>
 

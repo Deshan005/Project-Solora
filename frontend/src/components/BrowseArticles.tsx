@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
 
 import img1 from "../assets/blogs/browse/img1.png";
 import img2 from "../assets/blogs/browse/img2.png";
@@ -139,7 +140,16 @@ export default function BrowseArticles() {
 }
 
 // ArticleCard Component
-function ArticleCard({ article }: { article: any }) {
+interface Article {
+  id: number;
+  category: string;
+  title: string;
+  author: string;
+  date: string;
+  image: string | StaticImageData;
+}
+
+function ArticleCard({ article }: { article: Article }) {
   return (
     <div className="group">
       <div className="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
