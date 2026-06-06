@@ -70,9 +70,9 @@ const Features = () => {
         </div>
 
         {/* Carousel */}
-        <div className="relative h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="relative h-[300px] sm:h-[450px] lg:h-[600px] flex items-center justify-center overflow-hidden">
           {/* Left preview */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[300px] h-[400px] opacity-40 pointer-events-none">
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[300px] h-[400px] opacity-40 pointer-events-none hidden lg:block">
             <Image
               src={images[(current - 1 + images.length) % images.length].src}
               alt="Previous Preview"
@@ -82,7 +82,7 @@ const Features = () => {
           </div>
 
           {/* Center image */}
-          <div className="relative w-[700px] h-[500px] rounded-2xl overflow-hidden shadow-2xl z-10">
+          <div className="relative w-full max-w-[90%] sm:max-w-[80%] lg:w-[700px] h-[250px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl z-10">
             <AnimatePresence initial={false} custom={1}>
               <motion.div
                 key={current}
@@ -105,7 +105,7 @@ const Features = () => {
           </div>
 
           {/* Right preview */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[400px] opacity-40 pointer-events-none">
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[400px] opacity-40 pointer-events-none hidden lg:block">
             <Image
               src={images[(current + 1) % images.length].src}
               alt="Next Preview"

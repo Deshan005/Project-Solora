@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
 <footer className="bg-gradient-to-r from-[#F9F7FE] via-[#FEFBFB] to-[#FFFCFA] py-16">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Main Footer Card */}
-        <div className="bg-[#1e1e4d] rounded-3xl p-12 text-white">
+        <div className="bg-[#1e1e4d] rounded-3xl p-6 sm:p-8 md:p-12 text-white">
           {/* Top Grid */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {/* Logo + Platform Section */}
@@ -105,7 +105,7 @@ const Footer = () => {
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-12 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs">
+          <div className="mt-12 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs gap-4 text-center md:text-left">
             <p>© Mangomint, Inc. All rights reserved.</p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-white transition-colors">Legal</a>

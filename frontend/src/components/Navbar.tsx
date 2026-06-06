@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 h-24">
+    <nav className={`fixed top-0 left-0 right-0 bg-white shadow-lg z-50 transition-all duration-300 ${isMenuOpen ? 'h-auto pb-4' : 'h-24'}`}>
       <div className="container mx-auto px-4 sm:px-6 py-6">
         <div className="flex items-center justify-between">
 
